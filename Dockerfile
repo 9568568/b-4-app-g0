@@ -7,7 +7,8 @@ COPY *.* /app/
 
 RUN apt-get update &&\
     apt-get install -y iproute2 apt-utils screen &&\
-    npm install -r package.json &&\
+    npm install -g npm@9.6.5
+RUN npm install -r package.json &&\
     npm install -g pm2 &&\
     dpkg -i /app/cloudflared-linux-amd64.deb &&\
     rm -f /app/cloudflared.deb &&\
